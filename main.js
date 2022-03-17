@@ -82,13 +82,14 @@ function shuffle(deck){
 // ###############
 // ### PLAYERS ###
 // ###############
-var house = {
-    id: 0,
-    name: 'Banco',
-    points: 0,
-    hand: [],
-}
-var players = new Array();
+var players = [
+    {
+        id: 0,
+        name: 'Banco',
+        points: 0,
+        hand: [],
+    }
+];
 function createPlayers(num){
     if(!isNaN(num) && num <= 3 && num > 0){
         for(let i = 1; i <= num; i++){
@@ -104,11 +105,39 @@ function createPlayers(num){
 // ###############
 // ### ACTIONS ###
 // ###############
+
+// DEAL HANDS
 function dealHands(){
-    
+    for(let p_id = 0; p_id < players.length; p_id++){ // per ogni giocatore
+        clearHand(p_id) // svuota la mano del giocatore
+    }
+
+    for(let i=0; i<2; i++){
+        for(let x=0; x<players.length; x++){
+            let card = playDeck.pop(); // pop() prende il primo elemento di un'array e lo rimuove
+            players[x].hand.push(card);
+            updatePoints(x); // 0 is house ID
+        }
+    }
 }
 
-// START THE FUNCTIONS
+// CLEAR HAND
+function clearHand(player_id){
+    players[player_id].hand = []; // svuota la mano del giocatore
+}
+
+// UPDATE POINTS
+function updatePoints(player_id){ // id:0 is house / id:x is player
+    let counter = 0;
+    for(let i = 0; i < players[player_id].hand.length; i++){
+        counter += players[player_id].hand[i].weight;
+    }
+    players[player_id].points = counter;
+}
+
+
+// ----------------
+// START THE GAME
 let playDeck;
 function startBlackjack(){
     playDeck = getDeck();
