@@ -5,17 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Blackjack</title>
 </head>
 <body>
-    <div class="deck">
-        <h1>A Deck of Cards</h1>
+    <div id="field">
+        <a href="javascript:void(0)" class="btn" onclick="startBlackjack()">Start blackjack</a>
+        <h1>Blackjack</h1>
 
-        <a href="javascript:void(0)" class="btn" onclick="start(playDeck)">Start</a>
+        <a href="javascript:void(0)" class="btn" onclick="dealHands()">MANO</a>
 
         <p>Banco:<span id="house-hand"></span></p>
-        <br>
+        <p>tot:<span id="house-points"></span></p>
+        <br>--------
         <p>Tu:<span id="player-hand"></span></p>
+        <p>tot:<span id="player-points"></span></p>
         <a href="javascript:void(0)" class="btn" onclick="">Carta</a> ------
         <a href="javascript:void(0)" class="btn" onclick="">Stai</a>
     </div>

@@ -101,11 +101,16 @@ function createPlayers(num){
     }
 }
 
-
+// ###############
+// ### ACTIONS ###
+// ###############
+function dealHands(){
+    
+}
 
 // START THE FUNCTIONS
 let playDeck;
-function start(){
+function startBlackjack(){
     playDeck = getDeck();
     shuffle(playDeck);
     createPlayers(1);
