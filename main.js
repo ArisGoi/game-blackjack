@@ -32,11 +32,26 @@ const seeds = [
  * @returns a deck of 52 cards 
  */
 function getDeck(){
-    let deck = new Array();
+    let deck = new Array(); //creo un array
     
-    for(let i = 0; i < seeds.length; i++){
-        for(let x = 0; x < values.length; x++){
-            let card = {value: values[x], seed: seeds[i].name};
+    for(let i = 0; i < seeds.length; i++){ //ciclo per i semi
+        for(let x = 0; x < values.length; x++){ //ciclo per valore
+
+            let c_weight; //var "peso" numerico della carta
+
+            //stabilisco il "peso" delle carte
+            if (values[x] == "J" || values[x] == "Q" || values[x] == "K"){
+                c_weight = 10;
+            } else if (values[x] == "A"){
+                c_weight = 11;
+            } else {
+                c_weight = parseInt(values[x])
+            }
+
+            // creo la carta
+            let card = {value: values[x], weight: c_weight, seed: seeds[i].name};
+
+            // pusho la carta
             deck.push(card);
         }
     }
@@ -44,11 +59,11 @@ function getDeck(){
     return deck;
 }
 
-// Shuffle deck
+// MISCHIO IL DECK
 function shuffle(deck){
     // for 1000 times
 	// switch the values of two random cards
-	for (let i = 0; i < 1000; i++)
+	for (let i = 0; i < 3000; i++)
 	{
 		let location1 = Math.floor((Math.random() * deck.length));
 		let location2 = Math.floor((Math.random() * deck.length));
@@ -60,31 +75,12 @@ function shuffle(deck){
 }
 
 
-// RENDER DA RIVEDERE
-function renderDeck(deck){
-    document.getElementById("deck").innerHTML = "";
 
-	for(let i = 0; i < deck.length; i++)
-	{
-		let card = document.createElement("div");
-		let value = document.createElement("div");
-		let suit = document.createElement("div");
-		card.className = "card";
-		value.className = "value";
-		suit.className = "suit " + deck[i].seed;
-
-		value.innerHTML = deck[i].value;
-		card.appendChild(value);
-		card.appendChild(suit);
-
-		document.getElementById("deck").appendChild(card);
-	}
-}
 
 // START THE FUNCTIONS
 let playDeck;
 function start(){
     playDeck = getDeck();
     shuffle(playDeck);
-    renderDeck(playDeck);
+    console.log(playDeck);
 }
