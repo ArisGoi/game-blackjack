@@ -49,7 +49,12 @@ function getDeck(){
             }
 
             // creo la carta
-            let card = {value: values[x], weight: c_weight, seed: seeds[i].name};
+            let card = {
+                value: values[x],
+                weight: c_weight,
+                seed: seeds[i].name,
+                seed_icon: seeds[i].icon
+            };
 
             // pusho la carta
             deck.push(card);
