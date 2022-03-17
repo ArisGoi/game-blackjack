@@ -74,6 +74,21 @@ function shuffle(deck){
 	}
 }
 
+// ###############
+// ### PLAYERS ###
+// ###############
+var players = new Array();
+function createPlayers(num){
+    if(!isNaN(num) && num <= 3 && num > 0){
+        for(let i = 1; i <= num; i++){
+            var a_hand = new Array();
+            var player = {id: i, name: `player-${i}`, points: 0, hand: a_hand};
+            players.push(player);
+        }
+    } else {
+        alert('Errore! {number_of_players} non è un numero, deve essere un numero tra 1, 2, 3')
+    }
+}
 
 
 
@@ -82,5 +97,7 @@ let playDeck;
 function start(){
     playDeck = getDeck();
     shuffle(playDeck);
-    console.log(playDeck);
+    createPlayers(1);
+
+    console.log(playDeck, players);
 }
