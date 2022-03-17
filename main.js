@@ -77,6 +77,12 @@ function shuffle(deck){
 // ###############
 // ### PLAYERS ###
 // ###############
+var house = {
+    id: 0,
+    name: 'Banco',
+    points: 0,
+    hand: [],
+}
 var players = new Array();
 function createPlayers(num){
     if(!isNaN(num) && num <= 3 && num > 0){
