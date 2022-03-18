@@ -8,3 +8,7 @@
 - n > 21 perdi
 - 21 vince sempre
 - Pareggio con 21 vince il giocatore
+
+## tavolo
+- must draw on <= 16
+- stand on >= 17

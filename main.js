@@ -103,7 +103,7 @@ function createPlayers(num){
 }
 
 // ###############
-// ### ACTIONS ###
+// ### CORE FUNCTIONS
 // ###############
 
 // DEAL HANDS
@@ -111,7 +111,7 @@ function dealHands(){
     for(let p_id = 0; p_id < players.length; p_id++){ // per ogni giocatore
         clearHand(p_id) // svuota la mano del giocatore
     }
-
+    // Distribuisce le carte
     for(let i=0; i<2; i++){
         for(let x=0; x<players.length; x++){
             let card = playDeck.pop(); // pop() prende il primo elemento di un'array e lo rimuove
@@ -119,11 +119,13 @@ function dealHands(){
             updatePoints(x); // 0 is house ID
         }
     }
+    renderPlayers();//render
 }
 
 // CLEAR HAND
 function clearHand(player_id){
     players[player_id].hand = []; // svuota la mano del giocatore
+    renderField();//render
 }
 
 // UPDATE POINTS
@@ -135,6 +137,28 @@ function updatePoints(player_id){ // id:0 is house / id:x is player
     players[player_id].points = counter;
 }
 
+// TAKE A CARD
+function getOneCard(player_id){
+    let card = playDeck.pop();
+    players[player_id].hand.push(card);
+    updatePoints(player_id);
+    renderPlayers();//render
+}
+
+// HOUSE TURN / STAI
+function houseTurn(){ 
+    if(players[0].points >= 17){
+        // return findWinner();
+    } else {
+        do{
+            getOneCard(0);
+            updatePoints(0);
+            renderField();//render
+        } while(players[0].points < 17);
+
+        // return
+    }
+}
 
 // ----------------
 // START THE GAME
@@ -145,4 +169,35 @@ function startBlackjack(){
     createPlayers(1);
 
     console.log(playDeck, players);
+}
+
+// -------
+// RENDERS
+// -------
+function renderPlayers(){
+    renderField();
+    // house
+    document.getElementById('house-hand').innerHTML = '';
+    document.getElementById('house-hand').innerHTML += `${players[0].hand[0].value} ${players[0].hand[0].seed_icon} / *`;
+    document.getElementById('house-points').innerHTML = players[0].hand[0].value;
+}
+
+function renderField(){
+    // banco
+    // Per il banco bisogna mostrare solo la prima carta e il valore della prima
+    // solo alla fine bisogna mostrare tutti i dati...
+    // spostare e creare un render personalizzato
+    document.getElementById('house-hand').innerHTML = '';
+    for(let i = 0; i < players[0].hand.length; i++){
+        document.getElementById('house-hand').innerHTML += `${players[0].hand[i].value} ${players[0].hand[i].seed_icon} / `;
+    }
+    document.getElementById('house-points').innerHTML = players[0].points; 
+
+    // Player-1
+    document.getElementById('player-hand').innerHTML = '';
+    for(let i = 0; i < players[1].hand.length; i++){
+        document.getElementById('player-hand').innerHTML += `${players[1].hand[i].value} ${players[1].hand[i].seed_icon} / `;
+    }
+    document.getElementById('player-points').innerHTML = players[1].points;
+
 }

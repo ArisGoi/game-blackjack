@@ -12,15 +12,16 @@
         <a href="javascript:void(0)" class="btn" onclick="startBlackjack()">Start blackjack</a>
         <h1>Blackjack</h1>
 
-        <a href="javascript:void(0)" class="btn" onclick="dealHands()">MANO</a>
+        <a href="javascript:void(0)" class="btn" onclick="dealHands()">MANO</a> 
+        <!-- <a href="javascript:void(0)" class="btn" onclick="renderField()">render</a> -->
 
-        <p>Banco:<span id="house-hand"></span></p>
-        <p>tot:<span id="house-points"></span></p>
+        <p>Banco: <span id="house-hand"></span></p>
+        <p>tot: <span id="house-points"></span></p>
         <br>--------
-        <p>Tu:<span id="player-hand"></span></p>
-        <p>tot:<span id="player-points"></span></p>
-        <a href="javascript:void(0)" class="btn" onclick="">Carta</a> ------
-        <a href="javascript:void(0)" class="btn" onclick="">Stai</a>
+        <p>Tu: <span id="player-hand"></span></p>
+        <p>tot: <span id="player-points"></span></p>
+        <a href="javascript:void(0)" class="btn" onclick="getOneCard(1)">Carta</a> ------
+        <a href="javascript:void(0)" class="btn" onclick="houseTurn()">Stai</a>
     </div>
 
     <script src="main.js"></script>
