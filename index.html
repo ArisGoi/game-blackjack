@@ -8,20 +8,24 @@
     <title>Blackjack</title>
 </head>
 <body>
-    <div id="field">
-        <a href="javascript:void(0)" class="btn" onclick="startBlackjack()">Start blackjack</a>
+    <div id="pre-field">
         <h1>Blackjack</h1>
-
-        <a href="javascript:void(0)" class="btn" onclick="dealHands()">MANO</a> 
-        <!-- <a href="javascript:void(0)" class="btn" onclick="renderField()">render</a> -->
+        <a href="javascript:void(0)" class="btn" onclick="startBlackjack()">Start</a>
+    </div>
+    <div id="field" class="hide"> 
 
         <p>Banco: <span id="house-hand"></span></p>
         <p>tot: <span id="house-points"></span></p>
         <br>--------
         <p>Tu: <span id="player-hand"></span></p>
         <p>tot: <span id="player-points"></span></p>
-        <a href="javascript:void(0)" class="btn" onclick="getOneCard(1)">Carta</a> ------
-        <a href="javascript:void(0)" class="btn" onclick="houseTurn()">Stai</a>
+
+
+        <a href="javascript:void(0)" id="deal-hands" class="btn" onclick="dealHands()">MANO</a>
+        <div id="player-actions">
+            <a href="javascript:void(0)" class="btn" onclick="getOneCard(1)">Carta</a> ------
+            <a href="javascript:void(0)" class="btn" onclick="houseTurn()">Stai</a>
+        </div>
     </div>
 
     <script src="main.js"></script>

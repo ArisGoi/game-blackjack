@@ -8,22 +8,26 @@ const seeds = [
     {
         name: "hearts",
         name_it: "cuori",
-        icon: "♥"
+        icon: "♥",
+        color: "red"
     },
     {
         name: "diamonds",
         name_it: "quadri",
-        icon: "♦"
+        icon: "♦",
+        color: "red"
     },
     {
         name: "clubs",
         name_it: "fiori",
-        icon: "♣"
+        icon: "♣",
+        color: "black"
     },
     {
         name: "spades",
         name_it: "picche",
-        icon: "♠"
+        icon: "♠",
+        color: "black"
     },
 ]
 
@@ -120,6 +124,9 @@ function dealHands(){
         }
     }
     renderPlayers();//render
+
+    document.getElementById('deal-hands').classList.add('hide');
+    document.getElementById('player-actions').classList.remove('hide');
 }
 
 // CLEAR HAND
@@ -148,7 +155,7 @@ function getOneCard(player_id){
 // HOUSE TURN / STAI
 function houseTurn(){ 
     if(players[0].points >= 17){
-        // return findWinner();
+        alert('il banco scopre le carte');
     } else {
         do{
             getOneCard(0);
@@ -156,8 +163,13 @@ function houseTurn(){
             renderField();//render
         } while(players[0].points < 17);
 
-        // return
+        alert('il banco pesca delle carte');
     }
+
+    renderField();//render
+
+    document.getElementById('deal-hands').classList.remove('hide');
+    document.getElementById('player-actions').classList.add('hide');
 }
 
 // ----------------
@@ -167,6 +179,10 @@ function startBlackjack(){
     playDeck = getDeck();
     shuffle(playDeck);
     createPlayers(1);
+
+    document.getElementById('pre-field').classList.add('hide');
+    document.getElementById('field').classList.remove('hide');
+    document.getElementById('player-actions').classList.add('hide');
 
     console.log(playDeck, players);
 }
