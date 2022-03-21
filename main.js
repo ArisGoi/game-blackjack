@@ -57,7 +57,8 @@ function getDeck(){
                 value: values[x],
                 weight: c_weight,
                 seed: seeds[i].name,
-                seed_icon: seeds[i].icon
+                seed_icon: seeds[i].icon,
+                color: seeds[i].color
             };
 
             // pusho la carta
@@ -194,25 +195,22 @@ function renderPlayers(){
     renderField();
     // house
     document.getElementById('house-hand').innerHTML = '';
-    document.getElementById('house-hand').innerHTML += `${players[0].hand[0].value} ${players[0].hand[0].seed_icon} / *`;
+    document.getElementById('house-hand').innerHTML += `<span style="color:${players[0].hand[0].color}">${players[0].hand[0].value} ${players[0].hand[0].seed_icon}</span> / *`;
     document.getElementById('house-points').innerHTML = players[0].hand[0].value;
 }
 
 function renderField(){
-    // banco
-    // Per il banco bisogna mostrare solo la prima carta e il valore della prima
-    // solo alla fine bisogna mostrare tutti i dati...
-    // spostare e creare un render personalizzato
+    //Banco
     document.getElementById('house-hand').innerHTML = '';
     for(let i = 0; i < players[0].hand.length; i++){
-        document.getElementById('house-hand').innerHTML += `${players[0].hand[i].value} ${players[0].hand[i].seed_icon} / `;
+        document.getElementById('house-hand').innerHTML += `<span style="color:${players[0].hand[i].color}">${players[0].hand[i].value} ${players[0].hand[i].seed_icon}</span> / `;
     }
     document.getElementById('house-points').innerHTML = players[0].points; 
 
     // Player-1
     document.getElementById('player-hand').innerHTML = '';
     for(let i = 0; i < players[1].hand.length; i++){
-        document.getElementById('player-hand').innerHTML += `${players[1].hand[i].value} ${players[1].hand[i].seed_icon} / `;
+        document.getElementById('player-hand').innerHTML += `<span style="color:${players[1].hand[i].color}">${players[1].hand[i].value} ${players[1].hand[i].seed_icon}</span> / `;
     }
     document.getElementById('player-points').innerHTML = players[1].points;
 
