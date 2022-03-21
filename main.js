@@ -142,7 +142,12 @@ function updatePoints(player_id){ // id:0 is house / id:x is player
     for(let i = 0; i < players[player_id].hand.length; i++){
         counter += players[player_id].hand[i].weight;
     }
+
     players[player_id].points = counter;
+
+    if(player_id !=0 && players[player_id].points >= 21){
+        houseTurn();
+    }
 }
 
 // TAKE A CARD
@@ -160,14 +165,12 @@ function houseTurn(){
     } else {
         do{
             getOneCard(0);
-            updatePoints(0);
-            renderField();//render
         } while(players[0].points < 17);
 
         alert('il banco pesca delle carte');
     }
 
-    renderField();//render
+    setTimeout(function(){renderField()}, 10); //bug fixato con timeout
 
     document.getElementById('deal-hands').classList.remove('hide');
     document.getElementById('player-actions').classList.add('hide');
