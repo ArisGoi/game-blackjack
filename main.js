@@ -199,7 +199,7 @@ function renderPlayers(){
     // house
     document.getElementById('house-hand').innerHTML = '';
     document.getElementById('house-hand').innerHTML += `<span style="color:${players[0].hand[0].color}">${players[0].hand[0].value} ${players[0].hand[0].seed_icon}</span> / *`;
-    document.getElementById('house-points').innerHTML = players[0].hand[0].value;
+    document.getElementById('house-points').innerHTML = players[0].hand[0].weight;
 }
 
 function renderField(){
