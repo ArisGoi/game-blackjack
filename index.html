@@ -14,11 +14,23 @@
     </div>
     <div id="field" class="hide"> 
 
-        <p>Banco: <span id="house-hand"></span></p>
+        <!-- <p>Banco: <span id="house-hand"></span></p>
         <p>tot: <span id="house-points"></span></p>
         <br>--------
         <p>Tu: <span id="player-hand"></span></p>
-        <p>tot: <span id="player-points"></span></p>
+        <p>tot: <span id="player-points"></span></p> -->
+
+        <div class="players-container">
+            <div class="house-container">
+                <p>Tot: <span id="house-points"></span></p>
+                <div id="house-hand"></div>
+            </div>
+            <hr>
+            <div class="player-c">
+                <div id="player-hand"></div>
+                <p>tot: <span id="player-points"></span></p>
+            </div>
+        </div>
 
 
         <a href="javascript:void(0)" id="deal-hands" class="btn" onclick="dealHands()">MANO</a>

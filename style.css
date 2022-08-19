@@ -14,3 +14,46 @@ body{
     justify-content: center;
     background-color: white;
 }
+
+/* Card Colors */
+[card-color="red"]{color:red}
+[card-color="black"]{color:black}
+
+/* CARDS */
+.card{
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: antiquewhite;
+    height: 90px;
+    width: 60px;
+    position: relative;
+}
+.card.back{
+    background-image: url(card-back.svg);
+    background-size: cover;
+}
+.card .value{
+    font-size: 23px;
+    position: absolute;
+}
+.card .value:first-of-type{
+    top: 0px;
+    left: 4px;
+}
+.card .value:last-of-type{
+    bottom: 0px;
+    right: 4px;
+    transform: rotate(180deg);
+}
+.card .seed{
+    font-size: 30px;
+    position: absolute;
+    top: calc(50% + 3px);
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* HANDS */
+[id$="-hand"]{
+    display: flex;
+}
