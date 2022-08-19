@@ -1,7 +1,4 @@
 
-
-
-
 // DECK
 const values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
 const seeds = [
@@ -33,36 +30,38 @@ const seeds = [
 
 /**
  * GET DECK
- * @returns a deck of 52 cards 
+ * @returns a deck of 104 cards 
  */
 function getDeck(){
     let deck = new Array(); //creo un array
     
-    for(let i = 0; i < seeds.length; i++){ //ciclo per i semi
-        for(let x = 0; x < values.length; x++){ //ciclo per valore
+    for(let c = 0; c < 2; c++){ //ciclo x2 mazzi da 52 = deck da 104 carte
+        for(let i = 0; i < seeds.length; i++){ //ciclo per i semi
+            for(let x = 0; x < values.length; x++){ //ciclo per valore
 
-            let c_weight; //var "peso" numerico della carta
+                let c_weight; //var "peso" numerico della carta
 
-            //stabilisco il "peso" delle carte
-            if (values[x] == "J" || values[x] == "Q" || values[x] == "K"){
-                c_weight = 10;
-            } else if (values[x] == "A"){
-                c_weight = 11;
-            } else {
-                c_weight = parseInt(values[x])
+                //stabilisco il "peso" delle carte
+                if (values[x] == "J" || values[x] == "Q" || values[x] == "K"){
+                    c_weight = 10;
+                } else if (values[x] == "A"){
+                    c_weight = 11;
+                } else {
+                    c_weight = parseInt(values[x])
+                }
+
+                // creo la carta
+                let card = {
+                    value: values[x],
+                    weight: c_weight,
+                    seed: seeds[i].name,
+                    seed_icon: seeds[i].icon,
+                    color: seeds[i].color
+                };
+
+                // pusho la carta
+                deck.push(card);
             }
-
-            // creo la carta
-            let card = {
-                value: values[x],
-                weight: c_weight,
-                seed: seeds[i].name,
-                seed_icon: seeds[i].icon,
-                color: seeds[i].color
-            };
-
-            // pusho la carta
-            deck.push(card);
         }
     }
 
@@ -116,13 +115,19 @@ function dealHands(){
     for(let p_id = 0; p_id < players.length; p_id++){ // per ogni giocatore
         clearHand(p_id) // svuota la mano del giocatore
     }
-    // Distribuisce le carte
-    for(let i=0; i<2; i++){
-        for(let x=0; x<players.length; x++){
-            let card = playDeck.pop(); // pop() prende il primo elemento di un'array e lo rimuove
-            players[x].hand.push(card);
-            updatePoints(x); // 0 is house ID
+
+    // se il mazzo ha abbastanza carte distribuisce le carte altrimenti ne genera uno nuovo
+    if(playDeck.length > 20){
+        for(let i=0; i<2; i++){
+            for(let x=0; x<players.length; x++){
+                let card = playDeck.pop(); // pop() prende il primo elemento di un'array e lo rimuove
+                players[x].hand.push(card);
+                updatePoints(x); // 0 è l'ID del banco
+            }
         }
+    } else {
+        alert('Mazzo esaurito! Ricarico...');
+        window.location.reload();
     }
     renderPlayers();//render
 
@@ -133,15 +138,35 @@ function dealHands(){
 // CLEAR HAND
 function clearHand(player_id){
     players[player_id].hand = []; // svuota la mano del giocatore
+    console.log('pulisco mano');
     renderField();//render
 }
 
 // UPDATE POINTS
-function updatePoints(player_id){ // id:0 is house / id:x is player
+function updatePoints(player_id){ // id:0 è il banco / id:x è un player
     let counter = 0;
     for(let i = 0; i < players[player_id].hand.length; i++){
         counter += players[player_id].hand[i].weight;
     }
+    console.log('points: calcolo');
+
+    // Regola Asso 1/11
+    if(counter >= 22 && players[player_id].hand.find(card => card.weight == 11)){
+        // mi salvo la carta
+        let asso = players[player_id].hand.find(card => card.weight == 11);
+
+        // Modifico il valore dell'asso
+        asso.weight = 1;
+        
+        console.log('points: asso valore 1');
+    }
+
+    // ricalcolo il punteggio
+    counter = 0;
+    for(let i = 0; i < players[player_id].hand.length; i++){
+        counter += players[player_id].hand[i].weight;
+    }
+    console.log('points: ricalcolo');
 
     players[player_id].points = counter;
 
@@ -152,22 +177,22 @@ function updatePoints(player_id){ // id:0 is house / id:x is player
 
 // TAKE A CARD
 function getOneCard(player_id){
+    console.log('prendo carta');
     let card = playDeck.pop();
     players[player_id].hand.push(card);
     updatePoints(player_id);
     renderPlayers();//render
 }
 
-// HOUSE TURN / STAI
+// TURNO DEL BANCO / STAI
 function houseTurn(){ 
+    console.log('turno del banco');
     if(players[0].points >= 17){
         alert('il banco scopre le carte');
     } else {
         do{
             getOneCard(0);
         } while(players[0].points < 17);
-
-        alert('il banco pesca delle carte');
     }
 
     setTimeout(function(){renderField()}, 10); //bug fixato con timeout
