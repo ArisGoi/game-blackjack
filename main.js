@@ -188,7 +188,7 @@ function getOneCard(player_id){
 function houseTurn(){ 
     console.log('turno del banco');
     if(players[0].points >= 17){
-        alert('il banco scopre le carte');
+        // alert('il banco scopre le carte');
     } else {
         do{
             getOneCard(0);
