@@ -1,7 +1,3 @@
-* :not(h1){
-    font-size: 20px;
-}
-
 .hide{
     display: none;
 }
@@ -13,6 +9,32 @@ body{
     align-items: center;
     justify-content: center;
     background-color: white;
+    font-size: 20px;
+}
+
+.btn{
+    color: black;
+    background: gainsboro;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 8px 20px;
+    text-decoration: none;
+    font-weight: 500;
+}
+.btn.more{
+    background-color: royalblue;
+    border-color: rgb(43, 61, 116);
+    color: white;
+}
+.btn.stop{
+    background-color: rosybrown;
+    border-color: rgb(111, 79, 79);
+    color: white;
+}
+.btn.alert{
+    background-color: gold;
+    border-color: rgb(111, 79, 79);
+    color: black;
 }
 
 /* Card Colors */
@@ -21,12 +43,14 @@ body{
 
 /* CARDS */
 .card{
-    border: 1px solid black;
+    border: 1px solid rgba(0, 0, 0, 0.6);
     border-radius: 10px;
     background-color: antiquewhite;
     height: 90px;
     width: 60px;
     position: relative;
+    margin-left: -3px;
+    box-shadow: -1px 1px 3px 0px rgba(0, 0, 0, 0.3);
 }
 .card.back{
     background-image: url(card-back.svg);
@@ -54,6 +78,14 @@ body{
 }
 
 /* HANDS */
+.players-container{
+    /* width: 100%; */
+}
+[class$="hand-container"]{
+    /* max-width: 100%; */
+}
 [id$="-hand"]{
+    max-width: 90%;
     display: flex;
+    /* flex-wrap: wrap; */
 }

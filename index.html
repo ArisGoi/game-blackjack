@@ -21,22 +21,22 @@
         <p>tot: <span id="player-points"></span></p> -->
 
         <div class="players-container">
-            <div class="house-container">
-                <p>Tot: <span id="house-points"></span></p>
+            <div class="house-hand-container">
                 <div id="house-hand"></div>
+                <p>Banco - tot: <span id="house-points"></span></p>
             </div>
             <hr>
-            <div class="player-c">
+            <div class="player-hand-container">
                 <div id="player-hand"></div>
-                <p>tot: <span id="player-points"></span></p>
+                <p>TU - tot: <span id="player-points"></span></p>
             </div>
         </div>
 
 
-        <a href="javascript:void(0)" id="deal-hands" class="btn" onclick="dealHands()">MANO</a>
+        <a href="javascript:void(0)" id="deal-hands" class="btn alert" onclick="dealHands()">MANO</a>
         <div id="player-actions">
-            <a href="javascript:void(0)" class="btn" onclick="getOneCard(1)">Carta</a> ------
-            <a href="javascript:void(0)" class="btn" onclick="houseTurn()">Stai</a>
+            <a href="javascript:void(0)" class="btn more" onclick="getOneCard(1)">Carta</a> ------
+            <a href="javascript:void(0)" class="btn stop" onclick="houseTurn()">Stai</a>
         </div>
     </div>
 
