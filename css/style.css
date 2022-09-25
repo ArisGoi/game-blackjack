@@ -1,0 +1,126 @@
+:root {
+  --body-background_color: white;
+  --card-color-red: red;
+  --card-color-black: black;
+  --card-bg_color: antiquewhite;
+  --card-back-bg_color: antiquewhite;
+  --card-back-img: url(../imgs/card-back.svg);
+  --card-shadow: -1px 1px 3px 0px rgba(0, 0, 0, 0.3);
+  --card-border: 1px solid rgba(0, 0, 0, 0.6);
+  --seed-size: 30px;
+  --seed-pos-top: calc(50% + 3px);
+  --seed-pos-left: 50%;
+  --seed-pos-transform: translate(-50%, -50%);
+  --value-size: 23px;
+  --value-family: serif;
+  --val_first-pos-top: 0px;
+  --val_first-pos-left: 4px;
+  --val_last-display: inline-block;
+  --val_last-pos-bottom: 0px;
+  --val_last-pos-right: 4px;
+}
+
+/* COMMONS */
+.hide {
+  display: none;
+}
+
+/* Card Colors */
+[card-color=red] {
+  color: var(--card-color-red);
+}
+
+[card-color=black] {
+  color: var(--card-color-black);
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--body-background_color);
+  font-size: 20px;
+}
+
+/* FINE COMMONS */
+/* BUTTONS */
+.btn {
+  color: black;
+  background: gainsboro;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 8px 20px;
+  text-decoration: none;
+  font-weight: 500;
+}
+.btn.more {
+  background-color: royalblue;
+  border-color: #2b3d74;
+  color: white;
+}
+.btn.stop {
+  background-color: rosybrown;
+  border-color: #6f4f4f;
+  color: white;
+}
+.btn.alert {
+  background-color: gold;
+  border-color: #6f4f4f;
+  color: black;
+}
+
+/* HANDS */
+/* .players-container{
+    width: 100%;
+} */
+/* [class$="hand-container"]{
+    max-width: 100%;
+} */
+[id$=-hand] {
+  max-width: 90%;
+  display: flex;
+  /* flex-wrap: wrap; */
+}
+
+/* CARDS */
+.card {
+  border: var(--card-border);
+  border-radius: 10px;
+  background-color: var(--card-bg_color);
+  height: 90px;
+  width: 60px;
+  position: relative;
+  margin-left: -3px;
+  box-shadow: var(--card-shadow);
+}
+.card.back {
+  background-image: var(--card-back-img);
+  background-size: cover;
+  background-color: var(--card-back-bg_color);
+}
+.card .seed {
+  font-size: var(--seed-size);
+  position: absolute;
+  top: var(--seed-pos-top);
+  left: var(--seed-pos-left);
+  transform: var(--seed-pos-transform);
+}
+.card .value {
+  font-size: var(--value-size);
+  font-family: var(--value-family);
+  position: absolute;
+}
+.card .value:first-of-type {
+  top: var(--val_first-pos-top);
+  left: var(--val_first-pos-left);
+}
+.card .value:last-of-type {
+  display: var(--val_last-display);
+  bottom: var(--val_last-pos-bottom);
+  right: var(--val_last-pos-right);
+  transform: rotate(180deg);
+}
+
+/*# sourceMappingURL=style.css.map */

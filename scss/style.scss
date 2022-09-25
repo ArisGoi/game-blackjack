@@ -1,0 +1,110 @@
+@import '_variables.scss';
+
+/* COMMONS */
+.hide{
+    display: none;
+}
+
+/* Card Colors */
+[card-color="red"]{
+    // color: $card-color_red;
+    color: var(--card-color-red);
+}
+[card-color="black"]{
+    color: var(--card-color-black);
+}
+
+body{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--body-background_color);
+    font-size: 20px;
+}
+/* FINE COMMONS */
+
+/* BUTTONS */
+.btn{
+    color: black;
+    background: gainsboro;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 8px 20px;
+    text-decoration: none;
+    font-weight: 500;
+
+    &.more{
+        background-color: royalblue;
+        border-color: rgb(43, 61, 116);
+        color: white;
+    }
+    &.stop{
+        background-color: rosybrown;
+        border-color: rgb(111, 79, 79);
+        color: white;
+    }
+    &.alert{
+        background-color: gold;
+        border-color: rgb(111, 79, 79);
+        color: black;
+    }
+}
+
+/* HANDS */
+/* .players-container{
+    width: 100%;
+} */
+/* [class$="hand-container"]{
+    max-width: 100%;
+} */
+[id$="-hand"]{
+    max-width: 90%;
+    display: flex;
+    /* flex-wrap: wrap; */
+}
+
+/* CARDS */
+.card{
+    border: var(--card-border);
+    border-radius: 10px;
+    background-color: var(--card-bg_color);
+    height: 90px;
+    width: 60px;
+    position: relative;
+    margin-left: -3px;
+    box-shadow: var(--card-shadow);
+
+    &.back{
+        background-image: var(--card-back-img);
+        background-size: cover;
+        background-color: var(--card-back-bg_color);
+    }
+
+    .seed{
+        font-size: var(--seed-size);
+        position: absolute;
+        top: var(--seed-pos-top);
+        left: var(--seed-pos-left);
+        transform: var(--seed-pos-transform);
+    }
+
+    .value{
+        font-size: var(--value-size);
+        font-family: var(--value-family);
+        position: absolute;
+
+        &:first-of-type{
+            top: var(--val_first-pos-top);
+            left: var(--val_first-pos-left);
+        }
+
+        &:last-of-type{
+            display: var(--val_last-display);
+            bottom: var(--val_last-pos-bottom);
+            right: var(--val_last-pos-right);
+            transform: rotate(180deg);
+        }
+    }
+}

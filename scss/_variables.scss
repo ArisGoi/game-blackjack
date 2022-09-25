@@ -1,0 +1,34 @@
+:root{
+
+    // BODY
+    --body-background_color: white;
+
+    // CARDS PRINT-STYLE
+    --card-color-red: red;
+    --card-color-black: black;
+    --card-bg_color: antiquewhite;
+    --card-back-bg_color: antiquewhite;
+    --card-back-img: url(../imgs/card-back.svg);
+
+    // CARD OBJECT STYLE
+    --card-shadow: -1px 1px 3px 0px rgba(0, 0, 0, 0.3);
+    --card-border: 1px solid rgba(0, 0, 0, 0.6);
+
+    // CARD SEED
+    --seed-size: 30px;
+    --seed-pos-top: calc(50% + 3px);
+    --seed-pos-left: 50%;
+    --seed-pos-transform: translate(-50%, -50%);
+
+    //CARD VALUE (number)
+    --value-size: 23px;
+    --value-family: serif;
+
+    --val_first-pos-top: 0px;
+    --val_first-pos-left: 4px;
+
+    --val_last-display: inline-block;
+    --val_last-pos-bottom: 0px;
+    --val_last-pos-right: 4px;
+
+}
