@@ -1,5 +1,5 @@
 :root {
-  --body-background_color: white;
+  --body-background_color: rgb(177, 177, 177);
   --card-color-red: red;
   --card-color-black: black;
   --card-bg_color: antiquewhite;
@@ -18,6 +18,51 @@
   --val_last-display: inline-block;
   --val_last-pos-bottom: 0px;
   --val_last-pos-right: 4px;
+}
+
+.card-classic {
+  --card-color-red: rgb(237, 143, 248);
+  --card-color-black: black;
+  --card-bg_color: white;
+  --card-back-bg_color: rgb(30, 30, 30);
+  --card-back-img: url(../imgs/classic/card-back.svg);
+  --card-shadow: -1px 1px 3px 0px rgba(0, 0, 0, 0.3);
+  --card-border: 1px solid rgba(0, 0, 0, 0.6);
+  --seed-size: 30px;
+  --seed-pos-top: 0px;
+  --seed-pos-left: 90%;
+  --seed-pos-transform: translateX(-100%);
+  --value-size: 28px;
+  --value-family: serif;
+  --val_first-pos-top: 0px;
+  --val_first-pos-left: 4px;
+  --val_last-display: none;
+  --val_last-pos-bottom: 0px;
+  --val_last-pos-right: 4px;
+}
+.card-classic .card:not(.back):after {
+  content: "";
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, -5px);
+  width: 90%;
+  height: 55%;
+}
+.card-classic .card:not(.back)[card-code*=hearts]:after {
+  background-image: url(../imgs/classic/cuori.svg);
+}
+.card-classic .card:not(.back)[card-code*=diamonds]:after {
+  background-image: url(../imgs/classic/quadri.svg);
+}
+.card-classic .card:not(.back)[card-code*=clubs]:after {
+  background-image: url(../imgs/classic/fiori.svg);
+}
+.card-classic .card:not(.back)[card-code*=spades]:after {
+  background-image: url(../imgs/classic/picche.svg);
 }
 
 /* COMMONS */
