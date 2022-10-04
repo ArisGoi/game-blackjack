@@ -1,6 +1,13 @@
 @import '_variables.scss';
+@import 'partials/card-design-selector.scss';
+@import 'card-styles/modern.scss';
 
-@import 'card_style_classic';
+/* Reset */
+// * {
+//     margin: 0;
+//     padding: 0;
+//     box-sizing: border-box;
+// }
 
 /* COMMONS */
 .hide{
