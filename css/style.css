@@ -69,7 +69,8 @@
   border-top-color: #cccccc;
 }
 
-#field[card-design=modern] {
+body[card-design=modern] {
+  --body-background_color: pink;
   --card-color-red: rgb(237, 143, 248);
   --card-color-black: black;
   --card-bg_color: white;
@@ -89,7 +90,7 @@
   --val_last-pos-bottom: 0px;
   --val_last-pos-right: 4px;
 }
-#field[card-design=modern] .card:not(.back):after {
+body[card-design=modern] .card:not(.back):after {
   content: "";
   background-size: contain;
   background-repeat: no-repeat;
@@ -101,16 +102,16 @@
   width: 90%;
   height: 55%;
 }
-#field[card-design=modern] .card:not(.back)[card-code*=hearts]:after {
+body[card-design=modern] .card:not(.back)[card-code*=hearts]:after {
   background-image: url(../imgs/classic/cuori.svg);
 }
-#field[card-design=modern] .card:not(.back)[card-code*=diamonds]:after {
+body[card-design=modern] .card:not(.back)[card-code*=diamonds]:after {
   background-image: url(../imgs/classic/quadri.svg);
 }
-#field[card-design=modern] .card:not(.back)[card-code*=clubs]:after {
+body[card-design=modern] .card:not(.back)[card-code*=clubs]:after {
   background-image: url(../imgs/classic/fiori.svg);
 }
-#field[card-design=modern] .card:not(.back)[card-code*=spades]:after {
+body[card-design=modern] .card:not(.back)[card-code*=spades]:after {
   background-image: url(../imgs/classic/picche.svg);
 }
 
