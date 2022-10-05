@@ -1,5 +1,19 @@
+:root{
+    --c-red: red;
+    --c-black: black;
+}
+
+/* COMMONS */
 .hide{
     display: none;
+}
+
+/* Card Colors */
+[card-color="red"]{
+    color:var(--c-red)
+}
+[card-color="black"]{
+    color:var(--c-black)
 }
 
 body{
@@ -11,7 +25,9 @@ body{
     background-color: white;
     font-size: 20px;
 }
+/* FINE COMMONS */
 
+/* BUTTONS */
 .btn{
     color: black;
     background: gainsboro;
@@ -37,9 +53,7 @@ body{
     color: black;
 }
 
-/* Card Colors */
-[card-color="red"]{color:red}
-[card-color="black"]{color:black}
+/* FINE BUTTONS */
 
 /* CARDS */
 .card{
@@ -53,7 +67,7 @@ body{
     box-shadow: -1px 1px 3px 0px rgba(0, 0, 0, 0.3);
 }
 .card.back{
-    background-image: url(card-back.svg);
+    background-image: url(../imgs/card-back.svg);
     background-size: cover;
 }
 .card .value{
@@ -78,12 +92,12 @@ body{
 }
 
 /* HANDS */
-.players-container{
-    /* width: 100%; */
-}
-[class$="hand-container"]{
-    /* max-width: 100%; */
-}
+/* .players-container{
+    width: 100%;
+} */
+/* [class$="hand-container"]{
+    max-width: 100%;
+} */
 [id$="-hand"]{
     max-width: 90%;
     display: flex;

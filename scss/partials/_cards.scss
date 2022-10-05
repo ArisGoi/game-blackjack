@@ -1,0 +1,55 @@
+/* Card Colors */
+[card-color="red"]{
+    // color: $card-color_red;
+    color: var(--card-color-red);
+}
+[card-color="black"]{
+    color: var(--card-color-black);
+}
+
+/* CARDS */
+.card{
+    flex-shrink: 0;
+    border: var(--card-border);
+    border-radius: 10px;
+    background-color: var(--card-bg_color);
+    height: 90px;
+    width: 60px;
+    position: relative;
+    margin-left: -3px;
+    box-shadow: var(--card-shadow);
+
+    &.back{
+        background-image: var(--card-back-img);
+        background-size: cover;
+        background-color: var(--card-back-bg_color);
+    }
+
+    .seed{
+        display: var(--seed-display);
+        font-size: var(--seed-size);
+        font-family: var(--seed-font-family);
+        position: absolute;
+        top: var(--seed-pos-top);
+        left: var(--seed-pos-left);
+        transform: var(--seed-pos-transform);
+    }
+
+    .value{
+        font-size: var(--value-size);
+        font-family: var(--value-font-family);
+        position: absolute;
+
+        &:first-of-type{
+            top: var(--val_first-pos-top);
+            left: var(--val_first-pos-left);
+        }
+
+        &:last-of-type{
+            display: var(--val_last-display);
+            bottom: var(--val_last-pos-bottom);
+            right: var(--val_last-pos-right);
+            transform: rotate(180deg);
+        }
+    }
+}

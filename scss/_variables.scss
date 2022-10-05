@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif&display=swap');
+
+:root{
+
+    // BODY
+    --body-background_color: rgb(73, 112, 56);
+
+    // CARDS PRINT-STYLE
+    --card-color-red: #c42c27;
+    --card-color-black: black;
+    --card-bg_color: #F2E8DC;
+    --card-back-bg_color: #F2E8DC;
+    --card-back-img: url(../imgs/card-back.svg);
+
+    // CARD OBJECT STYLE
+    --card-shadow: -1px 1px 3px 0px rgba(0, 0, 0, 0.3);
+    --card-border: 1px solid rgba(40, 40, 40, 0.5);
+
+    // CARD SEED
+    --seed-display: block;
+    --seed-size: 29px;
+    --seed-font-family: 'PT Serif', serif;
+    --seed-pos-top: calc(50% + 0px);
+    --seed-pos-left: 50%;
+    --seed-pos-transform: translate(-50%, -50%);
+
+    //CARD VALUE (number)
+    --value-size: 22px;
+    --value-font-family:'PT Serif', serif;
+
+    --val_first-pos-top: 0px;
+    --val_first-pos-left: 4px;
+
+    --val_last-display: inline-block;
+    --val_last-pos-bottom: 0px;
+    --val_last-pos-right: 4px;
+
+}

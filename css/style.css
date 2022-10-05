@@ -1,0 +1,316 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Serif&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@500&display=swap");
+:root {
+  --body-background_color: rgb(73, 112, 56);
+  --card-color-red: #c42c27;
+  --card-color-black: black;
+  --card-bg_color: #F2E8DC;
+  --card-back-bg_color: #F2E8DC;
+  --card-back-img: url(../imgs/card-back.svg);
+  --card-shadow: -1px 1px 3px 0px rgba(0, 0, 0, 0.3);
+  --card-border: 1px solid rgba(40, 40, 40, 0.5);
+  --seed-display: block;
+  --seed-size: 29px;
+  --seed-font-family: "PT Serif", serif;
+  --seed-pos-top: calc(50% + 0px);
+  --seed-pos-left: 50%;
+  --seed-pos-transform: translate(-50%, -50%);
+  --value-size: 22px;
+  --value-font-family:"PT Serif", serif;
+  --val_first-pos-top: 0px;
+  --val_first-pos-left: 4px;
+  --val_last-display: inline-block;
+  --val_last-pos-bottom: 0px;
+  --val_last-pos-right: 4px;
+}
+
+.design-selector {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 200px;
+}
+.design-selector select {
+  font-family: "Arial";
+  width: 100%;
+  cursor: pointer;
+  padding: 10px 15px;
+  outline: 0;
+  border: 0px solid #000000;
+  border-radius: 0px;
+  background: #e6e6e6;
+  color: #7b7b7b;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+.design-selector select::-ms-expand {
+  display: none;
+}
+.design-selector select:hover, .design-selector select:focus {
+  color: #000000;
+  background: #cccccc;
+}
+.design-selector select:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+.design-selector .select_arrow {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  border-style: solid;
+  border-width: 8px 5px 0px 5px;
+  border-color: #7b7b7b transparent transparent transparent;
+}
+.design-selector select:hover ~ .select_arrow,
+.design-selector select:focus ~ .select_arrow {
+  border-top-color: #000000;
+}
+.design-selector select:disabled ~ .select_arrow {
+  border-top-color: #cccccc;
+}
+
+/* PRE FIELD */
+#pre-field {
+  text-align: center;
+}
+#pre-field h1 {
+  margin-bottom: 30px;
+}
+
+/* FIELD */
+#field #deal-hands, #field #player-actions {
+  position: absolute;
+  bottom: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+#field #player-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 220px;
+}
+#field #player-actions.hide {
+  display: none;
+}
+#field .players-container [class*=hand-container] {
+  text-align: center;
+}
+#field .players-container [class*=hand-container] p {
+  margin-top: 20px;
+}
+#field .players-container .table-rules {
+  margin: 22px 0 46px 0;
+}
+#field .players-container .table-rules img {
+  max-width: 300px;
+}
+
+/* HANDS */
+[id$=-hand] {
+  display: flex;
+  justify-content: center;
+  max-width: 90%;
+  margin: auto;
+  /* flex-wrap: wrap; */
+}
+
+/* BUTTONS */
+.btn {
+  color: black;
+  background: gainsboro;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 8px 20px;
+  text-decoration: none;
+  font-weight: 500;
+}
+.btn.more {
+  background-color: royalblue;
+  border-color: #2b3d74;
+  color: white;
+}
+.btn.stop {
+  background-color: rosybrown;
+  border-color: #6f4f4f;
+  color: white;
+}
+.btn.alert {
+  background-color: gold;
+  border-color: #6f4f4f;
+  color: black;
+}
+
+/* Card Colors */
+[card-color=red] {
+  color: var(--card-color-red);
+}
+
+[card-color=black] {
+  color: var(--card-color-black);
+}
+
+/* CARDS */
+.card {
+  flex-shrink: 0;
+  border: var(--card-border);
+  border-radius: 10px;
+  background-color: var(--card-bg_color);
+  height: 90px;
+  width: 60px;
+  position: relative;
+  margin-left: -3px;
+  box-shadow: var(--card-shadow);
+}
+.card.back {
+  background-image: var(--card-back-img);
+  background-size: cover;
+  background-color: var(--card-back-bg_color);
+}
+.card .seed {
+  display: var(--seed-display);
+  font-size: var(--seed-size);
+  font-family: var(--seed-font-family);
+  position: absolute;
+  top: var(--seed-pos-top);
+  left: var(--seed-pos-left);
+  transform: var(--seed-pos-transform);
+}
+.card .value {
+  font-size: var(--value-size);
+  font-family: var(--value-font-family);
+  position: absolute;
+}
+.card .value:first-of-type {
+  top: var(--val_first-pos-top);
+  left: var(--val_first-pos-left);
+}
+.card .value:last-of-type {
+  display: var(--val_last-display);
+  bottom: var(--val_last-pos-bottom);
+  right: var(--val_last-pos-right);
+  transform: rotate(180deg);
+}
+
+body[card-design=modern] {
+  /* ------------ */
+  /* FIELD DESIGN */
+  /* ------------ */
+  --body-background_color: rgb(73, 112, 56);
+  /* ------------ */
+  /* CARDS DESIGN */
+  /* ------------ */
+  --card-color-red: #c42c27;
+  --card-color-black: #191818;
+  --card-bg_color: white;
+  --card-back-bg_color: rgb(42, 42, 42);
+  --card-back-img: url(../imgs/modern/back.svg);
+  --card-shadow: -1px 1px 3px 0px rgba(0, 0, 0, 0.3);
+  --card-border: 2px solid rgba(0, 0, 0, 1);
+  --seed-display: none;
+  --value-size: 25px;
+  --value-font-family: "Gemunu Libre", sans-serif;
+  --val_first-pos-top: 0px;
+  --val_first-pos-left: 4px;
+  --val_last-display: none;
+  --val_last-pos-bottom: 0px;
+  --val_last-pos-right: 4px;
+}
+body[card-design=modern] .card:not(.back):before {
+  content: "";
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  width: 21px;
+  height: 20%;
+}
+body[card-design=modern] .card:not(.back)[card-code*=hearts]:before {
+  top: 6px;
+  right: 5px;
+  background-image: url(../imgs/modern/cuori-small.svg);
+}
+body[card-design=modern] .card:not(.back)[card-code*=diamonds]:before {
+  top: 6px;
+  right: 5px;
+  background-image: url(../imgs/modern/quadri-small.svg);
+}
+body[card-design=modern] .card:not(.back)[card-code*=clubs]:before {
+  top: 5px;
+  right: 5px;
+  background-image: url(../imgs/modern/fiori-small.svg);
+}
+body[card-design=modern] .card:not(.back)[card-code*=spades]:before {
+  top: 4px;
+  right: 5px;
+  background-image: url(../imgs/modern/picche-small.svg);
+}
+body[card-design=modern] .card:not(.back):after {
+  content: "";
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 95%;
+  height: 65%;
+}
+body[card-design=modern] .card:not(.back)[card-code*=hearts]:after {
+  transform: translate(-50%, -4px);
+  background-image: url(../imgs/modern/cuori.svg);
+}
+body[card-design=modern] .card:not(.back)[card-code*=diamonds]:after {
+  transform: translate(-50%, -4px);
+  background-image: url(../imgs/modern/quadri.svg);
+}
+body[card-design=modern] .card:not(.back)[card-code*=clubs]:after {
+  transform: translate(-50%, -4px);
+  background-image: url(../imgs/modern/fiori.svg);
+}
+body[card-design=modern] .card:not(.back)[card-code*=spades]:after {
+  transform: translate(-50%, -4px);
+  background-image: url(../imgs/modern/picche.svg);
+}
+body[card-design=modern] .card:not(.back)[card-code^=J]:after {
+  transform: translate(-50%, 0px);
+  background-image: url(../imgs/modern/jack.svg);
+}
+body[card-design=modern] .card:not(.back)[card-code^=Q]:after {
+  transform: translate(-50%, 0px);
+  background-image: url(../imgs/modern/queen.svg);
+}
+body[card-design=modern] .card:not(.back)[card-code^=K]:after {
+  transform: translate(-50%, 0px);
+  background-image: url(../imgs/modern/king.svg);
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* COMMONS */
+.hide {
+  display: none;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--body-background_color);
+  color: white;
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/*# sourceMappingURL=style.css.map */

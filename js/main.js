@@ -224,7 +224,7 @@ function renderPlayers(){
     renderField();
     // house
     document.getElementById('house-hand').innerHTML = '';
-    document.getElementById('house-hand').innerHTML += `<div class="card" card-color="${players[0].hand[0].color}"><span class="value">${players[0].hand[0].value}</span><span class="seed">${players[0].hand[0].seed_icon}</span><span class="value">${players[0].hand[0].value}</span></div> <div class="card back"></div>`;
+    document.getElementById('house-hand').innerHTML += `<div class="card" card-color="${players[0].hand[0].color}" card-code="${players[0].hand[0].value}-${players[0].hand[0].seed}"><span class="value">${players[0].hand[0].value}</span><span class="seed">${players[0].hand[0].seed_icon}</span><span class="value">${players[0].hand[0].value}</span></div> <div class="card back"></div>`;
     document.getElementById('house-points').innerHTML = players[0].hand[0].weight;
 }
 
@@ -232,14 +232,14 @@ function renderField(){
     //Banco
     document.getElementById('house-hand').innerHTML = '';
     for(let i = 0; i < players[0].hand.length; i++){
-        document.getElementById('house-hand').innerHTML += `<div class="card" card-color="${players[0].hand[i].color}"><span class="value">${players[0].hand[i].value}</span><span class="seed">${players[0].hand[i].seed_icon}</span><span class="value">${players[0].hand[i].value}</span></div>`;
+        document.getElementById('house-hand').innerHTML += `<div class="card" card-color="${players[0].hand[i].color}" card-code="${players[0].hand[i].value}-${players[0].hand[i].seed}"><span class="value">${players[0].hand[i].value}</span><span class="seed">${players[0].hand[i].seed_icon}</span><span class="value">${players[0].hand[i].value}</span></div>`;
     }
     document.getElementById('house-points').innerHTML = players[0].points; 
 
     // Player-1
     document.getElementById('player-hand').innerHTML = '';
     for(let i = 0; i < players[1].hand.length; i++){
-        document.getElementById('player-hand').innerHTML += `<div class="card" card-color="${players[1].hand[i].color}"><span class="value">${players[1].hand[i].value}</span><span class="seed">${players[1].hand[i].seed_icon}</span><span class="value">${players[1].hand[i].value}</span></div>`;
+        document.getElementById('player-hand').innerHTML += `<div class="card" card-color="${players[1].hand[i].color}" card-code="${players[1].hand[i].value}-${players[1].hand[i].seed}"><span class="value">${players[1].hand[i].value}</span><span class="seed">${players[1].hand[i].seed_icon}</span><span class="value">${players[1].hand[i].value}</span></div>`;
     }
     document.getElementById('player-points').innerHTML = players[1].points;
 

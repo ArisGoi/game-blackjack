@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@500&display=swap');
+
+body[card-design="modern"]{
+
+    /* ------------ */
+    /* FIELD DESIGN */
+    /* ------------ */
+
+    // BODY STYLE
+    --body-background_color: rgb(73, 112, 56);
+
+
+
+
+
+
+
+    /* ------------ */
+    /* CARDS DESIGN */
+    /* ------------ */
+
+    // CARDS PRINT-STYLE
+    --card-color-red: #c42c27;
+    --card-color-black: #191818;
+    --card-bg_color: white;
+    --card-back-bg_color: rgb(42, 42, 42);
+    --card-back-img: url(../imgs/modern/back.svg);
+
+    // CARD OBJECT STYLE
+    --card-shadow: -1px 1px 3px 0px rgba(0, 0, 0, 0.3);
+    --card-border: 2px solid rgba(0, 0, 0, 1);
+
+    // CARD SEED
+    --seed-display: none;
+
+    .card:not(.back):before{
+        content:'';
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        position: absolute;
+        width: 21px;
+        height: 20%;
+    }
+
+    .card:not(.back){
+        &[card-code*="hearts"]:before{
+            top: 6px;
+            right: 5px;
+            background-image: url(../imgs/modern/cuori-small.svg);
+        }
+        &[card-code*="diamonds"]:before{
+            top: 6px;
+            right: 5px;
+            background-image: url(../imgs/modern/quadri-small.svg);
+        }
+        &[card-code*="clubs"]:before{
+            top: 5px;
+            right: 5px;
+            background-image: url(../imgs/modern/fiori-small.svg);
+        }
+        &[card-code*="spades"]:before{
+            top: 4px;
+            right: 5px;
+            background-image: url(../imgs/modern/picche-small.svg);
+        }
+    }
+
+
+
+
+
+    //CARD VALUE (number)
+    --value-size: 25px;
+    --value-font-family: 'Gemunu Libre', sans-serif;
+
+    --val_first-pos-top: 0px;
+    --val_first-pos-left: 4px;
+
+    --val_last-display: none;
+    --val_last-pos-bottom: 0px;
+    --val_last-pos-right: 4px;
+
+    // CARD BIG FIGURE
+    .card:not(.back):after{
+        content:'';
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 95%;
+        height: 65%;
+    }
+
+    .card:not(.back){
+        &[card-code*="hearts"]:after{
+            transform: translate(-50%, -4px);
+            background-image: url(../imgs/modern/cuori.svg);
+        }
+        &[card-code*="diamonds"]:after{
+            transform: translate(-50%, -4px);
+            background-image: url(../imgs/modern/quadri.svg);
+        }
+        &[card-code*="clubs"]:after{
+            transform: translate(-50%, -4px);
+            background-image: url(../imgs/modern/fiori.svg);
+        }
+        &[card-code*="spades"]:after{
+            transform: translate(-50%, -4px);
+            background-image: url(../imgs/modern/picche.svg);
+        }
+
+        &[card-code^="J"]:after{
+            transform: translate(-50%, 0px);
+            background-image: url(../imgs/modern/jack.svg);
+        }
+        &[card-code^="Q"]:after{
+            transform: translate(-50%, 0px);
+            background-image: url(../imgs/modern/queen.svg);
+        }
+        &[card-code^="K"]:after{
+            transform: translate(-50%, 0px);
+            background-image: url(../imgs/modern/king.svg);
+        }
+    }
+}
