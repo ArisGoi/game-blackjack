@@ -92,7 +92,9 @@ body{
     }
 
     .seed{
+        display: var(--seed-display);
         font-size: var(--seed-size);
+        font-family: var(--seed-font-family);
         position: absolute;
         top: var(--seed-pos-top);
         left: var(--seed-pos-left);
@@ -101,7 +103,7 @@ body{
 
     .value{
         font-size: var(--value-size);
-        font-family: var(--value-family);
+        font-family: var(--value-font-family);
         position: absolute;
 
         &:first-of-type{
