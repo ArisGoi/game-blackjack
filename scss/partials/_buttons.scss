@@ -1,0 +1,26 @@
+/* BUTTONS */
+.btn{
+    color: black;
+    background: gainsboro;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 8px 20px;
+    text-decoration: none;
+    font-weight: 500;
+
+    &.more{
+        background-color: royalblue;
+        border-color: rgb(43, 61, 116);
+        color: white;
+    }
+    &.stop{
+        background-color: rosybrown;
+        border-color: rgb(111, 79, 79);
+        color: white;
+    }
+    &.alert{
+        background-color: gold;
+        border-color: rgb(111, 79, 79);
+        color: black;
+    }
+}
