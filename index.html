@@ -9,14 +9,6 @@
 </head>
 <body card-design="">
 
-    <!-- TEST CARDS -->
-    <!-- <div class="card" card-color="red" card-code="2-diamonds"><span class="value">2</span><span class="seed">♦</span><span class="value">2</span></div>
-    <div class="card" card-color="black" card-code="J-clubs"><span class="value">J</span><span class="seed">♣</span><span class="value">J</span></div>
-    <div class="card" card-color="red" card-code="Q-hearts"><span class="value">Q</span><span class="seed">♥</span><span class="value">Q</span></div>
-    <div class="card" card-color="black" card-code="K-spades"><span class="value">K</span><span class="seed">♠</span><span class="value">K</span></div> -->
-
-
-
     <!-- Design Selector -->
     <div class="design-selector">
         <select id="card-design-select">
@@ -30,7 +22,8 @@
     <!-- Start game (pre_field) -->
     <div id="pre-field">
         <h1>Blackjack</h1>
-        <a href="javascript:void(0)" class="btn" onclick="startBlackjack()">Start</a>
+
+        <a href="javascript:void(0)" class="btn start" onclick="startBlackjack()">Start</a>
     </div>
 
     <!-- Game Field -->
@@ -41,15 +34,18 @@
             <!-- House Hand -->
             <div class="house-hand-container">
                 <div id="house-hand"></div>
-                <p>Banco - tot: <span id="house-points"></span></p>
+                <p>Banco: <span id="house-points">0</span></p>
             </div>
 
-            <hr>
+            <!-- <hr> -->
+            <div class="table-rules">
+                <img src="imgs/table-rules.png" alt="Blackjack pays 3 to 2 -- Dealer must stay at >=17 and draw <=16">
+            </div>
 
             <!-- Player Hand -->
             <div class="player-hand-container">
                 <div id="player-hand"></div>
-                <p>TU - tot: <span id="player-points"></span></p>
+                <p>Tu: <span id="player-points">0</span></p>
             </div>
 
         </div>
@@ -57,7 +53,7 @@
 
         <a href="javascript:void(0)" id="deal-hands" class="btn alert" onclick="dealHands()">Deal Hands</a>
         <div id="player-actions">
-            <a href="javascript:void(0)" class="btn more" onclick="getOneCard(1)">Card</a> ------
+            <a href="javascript:void(0)" class="btn more" onclick="getOneCard(1)">Card</a>
             <a href="javascript:void(0)" class="btn stop" onclick="houseTurn()">Stop</a>
         </div>
     </div>

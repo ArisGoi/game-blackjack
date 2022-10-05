@@ -9,6 +9,7 @@
 
 /* CARDS */
 .card{
+    flex-shrink: 0;
     border: var(--card-border);
     border-radius: 10px;
     background-color: var(--card-bg_color);

@@ -1,0 +1,58 @@
+/* PRE FIELD */
+#pre-field{
+    text-align: center;
+    
+    h1{
+        margin-bottom: 30px;
+    }
+}
+
+
+/* FIELD */
+#field{
+
+    #deal-hands, #player-actions{
+        position: absolute;
+        bottom: 8%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    #player-actions{
+        &.hide{display: none;}
+
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 220px;
+    }
+
+    .players-container{
+
+        [class*="hand-container"]{
+            text-align: center;
+            
+            p{
+                margin-top: 20px;
+            }
+        }
+
+        .table-rules{
+            margin: 22px 0 46px 0;
+
+            img{
+                max-width: 300px;
+            }
+        }
+
+    }
+}
+
+/* HANDS */
+[id$="-hand"]{
+    display: flex;
+    justify-content: center;
+    max-width: 90%;
+    margin: auto;
+    /* flex-wrap: wrap; */
+}

@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=PT+Serif&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@500&display=swap");
 :root {
-  --body-background_color: rgb(177, 177, 177);
+  --body-background_color: rgb(73, 112, 56);
   --card-color-red: #c42c27;
   --card-color-black: black;
   --card-bg_color: #F2E8DC;
@@ -22,95 +22,6 @@
   --val_last-display: inline-block;
   --val_last-pos-bottom: 0px;
   --val_last-pos-right: 4px;
-}
-
-/* BUTTONS */
-.btn {
-  color: black;
-  background: gainsboro;
-  border: 1px solid black;
-  border-radius: 5px;
-  padding: 8px 20px;
-  text-decoration: none;
-  font-weight: 500;
-}
-.btn.more {
-  background-color: royalblue;
-  border-color: #2b3d74;
-  color: white;
-}
-.btn.stop {
-  background-color: rosybrown;
-  border-color: #6f4f4f;
-  color: white;
-}
-.btn.alert {
-  background-color: gold;
-  border-color: #6f4f4f;
-  color: black;
-}
-
-/* Card Colors */
-[card-color=red] {
-  color: var(--card-color-red);
-}
-
-[card-color=black] {
-  color: var(--card-color-black);
-}
-
-/* CARDS */
-.card {
-  border: var(--card-border);
-  border-radius: 10px;
-  background-color: var(--card-bg_color);
-  height: 90px;
-  width: 60px;
-  position: relative;
-  margin-left: -3px;
-  box-shadow: var(--card-shadow);
-}
-.card.back {
-  background-image: var(--card-back-img);
-  background-size: cover;
-  background-color: var(--card-back-bg_color);
-}
-.card .seed {
-  display: var(--seed-display);
-  font-size: var(--seed-size);
-  font-family: var(--seed-font-family);
-  position: absolute;
-  top: var(--seed-pos-top);
-  left: var(--seed-pos-left);
-  transform: var(--seed-pos-transform);
-}
-.card .value {
-  font-size: var(--value-size);
-  font-family: var(--value-font-family);
-  position: absolute;
-}
-.card .value:first-of-type {
-  top: var(--val_first-pos-top);
-  left: var(--val_first-pos-left);
-}
-.card .value:last-of-type {
-  display: var(--val_last-display);
-  bottom: var(--val_last-pos-bottom);
-  right: var(--val_last-pos-right);
-  transform: rotate(180deg);
-}
-
-/* HANDS */
-/* .players-container{
-    width: 100%;
-} */
-/* [class$="hand-container"]{
-    max-width: 100%;
-} */
-[id$=-hand] {
-  max-width: 90%;
-  display: flex;
-  /* flex-wrap: wrap; */
 }
 
 .design-selector {
@@ -160,6 +71,129 @@
 }
 .design-selector select:disabled ~ .select_arrow {
   border-top-color: #cccccc;
+}
+
+/* PRE FIELD */
+#pre-field {
+  text-align: center;
+}
+#pre-field h1 {
+  margin-bottom: 30px;
+}
+
+/* FIELD */
+#field #deal-hands, #field #player-actions {
+  position: absolute;
+  bottom: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+#field #player-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 220px;
+}
+#field #player-actions.hide {
+  display: none;
+}
+#field .players-container [class*=hand-container] {
+  text-align: center;
+}
+#field .players-container [class*=hand-container] p {
+  margin-top: 20px;
+}
+#field .players-container .table-rules {
+  margin: 22px 0 46px 0;
+}
+#field .players-container .table-rules img {
+  max-width: 300px;
+}
+
+/* HANDS */
+[id$=-hand] {
+  display: flex;
+  justify-content: center;
+  max-width: 90%;
+  margin: auto;
+  /* flex-wrap: wrap; */
+}
+
+/* BUTTONS */
+.btn {
+  color: black;
+  background: gainsboro;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 8px 20px;
+  text-decoration: none;
+  font-weight: 500;
+}
+.btn.more {
+  background-color: royalblue;
+  border-color: #2b3d74;
+  color: white;
+}
+.btn.stop {
+  background-color: rosybrown;
+  border-color: #6f4f4f;
+  color: white;
+}
+.btn.alert {
+  background-color: gold;
+  border-color: #6f4f4f;
+  color: black;
+}
+
+/* Card Colors */
+[card-color=red] {
+  color: var(--card-color-red);
+}
+
+[card-color=black] {
+  color: var(--card-color-black);
+}
+
+/* CARDS */
+.card {
+  flex-shrink: 0;
+  border: var(--card-border);
+  border-radius: 10px;
+  background-color: var(--card-bg_color);
+  height: 90px;
+  width: 60px;
+  position: relative;
+  margin-left: -3px;
+  box-shadow: var(--card-shadow);
+}
+.card.back {
+  background-image: var(--card-back-img);
+  background-size: cover;
+  background-color: var(--card-back-bg_color);
+}
+.card .seed {
+  display: var(--seed-display);
+  font-size: var(--seed-size);
+  font-family: var(--seed-font-family);
+  position: absolute;
+  top: var(--seed-pos-top);
+  left: var(--seed-pos-left);
+  transform: var(--seed-pos-transform);
+}
+.card .value {
+  font-size: var(--value-size);
+  font-family: var(--value-font-family);
+  position: absolute;
+}
+.card .value:first-of-type {
+  top: var(--val_first-pos-top);
+  left: var(--val_first-pos-left);
+}
+.card .value:last-of-type {
+  display: var(--val_last-display);
+  bottom: var(--val_last-pos-bottom);
+  right: var(--val_last-pos-right);
+  transform: rotate(180deg);
 }
 
 body[card-design=modern] {
@@ -274,7 +308,9 @@ body {
   align-items: center;
   justify-content: center;
   background-color: var(--body-background_color);
+  color: white;
   font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 /*# sourceMappingURL=style.css.map */
