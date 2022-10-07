@@ -82,20 +82,19 @@
 }
 
 /* FIELD */
-#field #deal-hands, #field #player-actions {
-  position: absolute;
-  bottom: 8%;
-  left: 50%;
-  transform: translateX(-50%);
-}
-#field #player-actions {
+#field #player-actions, #field #field-actions {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   width: 220px;
+  position: relative;
+  margin: 20px auto 0 auto;
 }
-#field #player-actions.hide {
+#field #player-actions.hide, #field #field-actions.hide {
   display: none;
+}
+#field #field-actions {
+  justify-content: center;
 }
 #field .players-container [class*=hand-container] {
   text-align: center;

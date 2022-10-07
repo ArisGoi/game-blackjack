@@ -11,20 +11,18 @@
 /* FIELD */
 #field{
 
-    #deal-hands, #player-actions{
-        position: absolute;
-        bottom: 8%;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    #player-actions{
+    #player-actions, #field-actions{
         &.hide{display: none;}
 
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
         width: 220px;
+        position: relative;
+        margin:  20px auto 0 auto;
+    }
+    #field-actions{
+        justify-content: center;
     }
 
     .players-container{
