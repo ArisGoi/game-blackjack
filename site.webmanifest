@@ -1,0 +1,12 @@
+{
+    "short_name": "Blackjack",
+    "name": "Arishish Blackjack",
+    "icons": [{
+      "src": "./imgs/icon.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }],
+    "theme_color": "#497038",
+    "display": "fullscreen"
+  }
+  
