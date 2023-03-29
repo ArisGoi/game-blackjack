@@ -9,7 +9,7 @@ if ('onbeforeinstallprompt' in window) {
         installButton.removeAttribute('hidden');
     });
 } else {
-    alert('Il tuo browser non supporta l\'installazione di web app');
+    console.log('Il tuo browser non supporta l\'installazione di web app');
 }
 
 // Funzione per gestire il click sul pulsante di installazione
